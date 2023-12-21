@@ -28,8 +28,6 @@
             </tr>
         </table>
         <input type="button" class="btn btn-warning" onclick="location.href='<?php echo base_url() . 'admin/data_barang'; ?>';" value="Kembali" />
-
     </section>
-    <br />
-
+    <br/>
 </div>

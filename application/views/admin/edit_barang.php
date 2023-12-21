@@ -13,15 +13,11 @@
             </div>
             <div class="form-group">
                 <label for="kat">Kategori</label>
-                <!-- <input type="text" class="form-control" name="kategori" value="<?php //echo $brg->kategori;
-                                                                                    ?>">-->
                 <select class="form-control" name="kategori">
                     <option <?php if ($brg->kategori == 'Aksesoris') echo 'selected'; ?>> Aksesoris</option>
                     <option <?php if ($brg->kategori == 'Sandal Pria') echo 'selected'; ?>> Sandal Pria</option>
                     <option <?php if ($brg->kategori == 'Sandal Wanita') echo 'selected'; ?>> Sandal Wanita</option>
                     <option <?php if ($brg->kategori == 'Sandal Anak') echo 'selected'; ?>> Sandal Anak</option>
-                    <!-- <option <?php if ($brg->kategori == 'Peralatan Olahraga') echo 'selected'; ?>> Peralatan Olahraga</option>> -->
-
                 </select>
             </div>
             <div class="form-group">
@@ -42,11 +38,10 @@
                 <input type="file" class="form-control" name="gambar_brg">
             </div>
 
-            <!-- <button type="reset" class="btn btn-danger">Reset</button>-->
             <input type="button" class="btn btn-warning" onclick="location.href='<?php echo base_url() . 'admin/data_barang'; ?>';" value="Batal" />
             <button type="submit" class="btn btn-success">Update</button>
-            <!--</form>-->
+            
         </form>
-        <br />
+        <br/>
     <?php endforeach; ?>
 </div>

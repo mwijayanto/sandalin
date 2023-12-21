@@ -26,11 +26,11 @@ class Data_barang extends CI_Controller
     public function tambah_aksi()
     {
         $nama_brg       = $this->input->post('nama_brg');
-        $keterangan       = $this->input->post('keterangan');
+        $keterangan     = $this->input->post('keterangan');
         $kategori       = $this->input->post('kategori');
-        $harga       = $this->input->post('harga');
-        $stok       = $this->input->post('stok');
-        $gbr_brg       = $_FILES['gambar_brg']['name'];
+        $harga          = $this->input->post('harga');
+        $stok           = $this->input->post('stok');
+        $gbr_brg        = $_FILES['gambar_brg']['name'];
 
         if ($gbr_brg = '') {
         } else {
@@ -45,12 +45,12 @@ class Data_barang extends CI_Controller
             }
         }
         $data = array(
-            'nama_brg'          => $nama_brg,
-            'keterangan'          => $keterangan,
-            'kategori'          => $kategori,
-            'harga'          => $harga,
+            'nama_brg'      => $nama_brg,
+            'keterangan'    => $keterangan,
+            'kategori'      => $kategori,
+            'harga'         => $harga,
             'stok'          => $stok,
-            'gambar'          => $gbr_brg,
+            'gambar'        => $gbr_brg,
         );
         $this->model_barang->tambah_barang($data, 'tb_barang');
 
@@ -123,6 +123,17 @@ class Data_barang extends CI_Controller
         $this->load->view('admin/detil_barang', $data);
         $this->load->view('templates_admin/footer');
     }
-
-
+    
+    public function cetakpdf(){
+        $this->load->library('dompdf_gen');
+        $data['barang']=$this->model_barang->tampil_data('tb_barang')->result();
+        $this->load->view('laporan_pdf',$data);
+        $paper_size='A4';
+        $orientation='portrait';
+        $html=$this->output->get_output();
+        $this->dompdf->set_paper($paper_size,$orientation);
+        $this->dompdf->load_html($html);
+        $this->dompdf->render();
+        $this->dompdf->stream('Laporan_data_produk.pdf',array('Attachment'=>0));
+    }
 }

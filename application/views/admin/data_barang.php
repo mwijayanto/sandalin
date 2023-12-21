@@ -5,18 +5,8 @@
         <div class="col">
             <button class="btn btn-info " data-toggle="modal" data-target="#tambahbarang"><i class="fas fa-plus fa-sm"></i> Tambah Produk</button>
             <!-- <a href="<?php echo base_url() . 'admin/data_barang/cetakpdf'; ?>" class="btn btn-secondary"><i class="fas fa-file-pdf fa-sm"></i> Export PDF</a> -->
-          
+            <a href="" class="btn btn-secondary"><i class="fas fa-file-pdf fa-sm"></i> Export PDF</a>
         </div>
-        <!-- <div class="col">
-            <?php echo form_open('admin/data_barang/cari'); ?>
-            <div class="input-group">
-                <input type="text" class="form-control" name="katakunci" placeholder="Ketik yang anda cari...">
-                <div class="input-group-append">
-                    <button class="btn btn-warning" type="submit">Cari</button>
-                </div>
-            </div>
-        <?php echo form_close(); ?>
-        </div> -->
     </div>
     <table class="table table-bordered table-responsive-sm mt-2 table-hover">
         <tr>
@@ -39,21 +29,16 @@
                 <td><?php echo $brg->kategori; ?></td>
                 <td><?php echo $brg->harga; ?></td>
                 <td><?php echo $brg->stok; ?></td>
-                <td><?php echo anchor('admin/data_barang/detail/' . $brg->id_brg, '<div class="btn btn-success btn-sm"><i class="fas fa-search-plus"  title="Detail"></i></div>'); ?>
-
-                </td>
-                <td><?php echo anchor('admin/data_barang/edit/' . $brg->id_brg, '<div class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></div>'); ?>
-
-                </td>
-                <td onclick="javascript:return confirm('Konfirmasi Hapus Produk ?');"><?php echo anchor('admin/data_barang/hapus/' . $brg->id_brg, '<div class="btn btn-danger btn-sm" title="Hapus"><i class="fa fa-trash"></i></div>'); ?>
-
-                </td>
+                <td><?php echo anchor('admin/data_barang/detail/' . $brg->id_brg, '<div class="btn btn-success btn-sm"><i class="fas fa-search-plus"  title="Detail"></i></div>'); ?></td>
+                <td><?php echo anchor('admin/data_barang/edit/' . $brg->id_brg, '<div class="btn btn-primary btn-sm" title="Edit"><i class="fa fa-edit"></i></div>'); ?></td>
+                <td onclick="javascript:return confirm('Konfirmasi Hapus Produk ?');"><?php echo anchor('admin/data_barang/hapus/' . $brg->id_brg, '<div class="btn btn-danger btn-sm" title="Hapus"><i class="fa fa-trash"></i></div>'); ?></td>
             </tr>
         <?php
             $nomor++;
         endforeach; ?>
     </table>
 </div>
+
 <!-- Modal -->
 <div class="modal fade" id="tambahbarang" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -77,13 +62,11 @@
 
                     <div class="form-group">
                         <label for="kat">Kategori</label>
-                        <!--  <input type="text" class="form-control" name="kategori">-->
                         <select name="kategori" class="form-control">
                             <option value="Aksesoris">Aksesoris</option>
                             <option value="Sandal Pria">Sandal Pria</option>
                             <option value="Sandal Wanita">Sandal Wanita</option>
                             <option value="Sandal Anak">Sandal Anak</option>
-                            <!-- <option value="Peralatan Olahraga">Peralatan Olahraga</option> -->
                         </select>
                     </div>
                     <div class="form-group">

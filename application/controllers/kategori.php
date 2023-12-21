@@ -28,12 +28,5 @@
             $this->load->view('sandalanak',$data);
             $this->load->view('templates/footer');
         }
-        // public function peralatan_olahraga(){
-        //     $data['peralatanolahraga']=$this->model_kategori->data_peralatan_olahraga()->result();
-        //     $this->load->view('templates/header');
-        //     $this->load->view('templates/sidebar');
-        //     $this->load->view('peralatanolahraga',$data);
-        //     $this->load->view('templates/footer');
-        // }
     }
 ?>
